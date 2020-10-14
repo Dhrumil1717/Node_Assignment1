@@ -1,12 +1,25 @@
 {
-    "name": "ProductApi",
-    "version": "1.0.0",
-    "description": "REST API - Users",
-    "dependencies": {
-        "restify": "4.1.1",
-        "save": "2.3.0"
-    },
-    "author": "Dhrumil and Nithyanand",
-    "private": true,
-    "main": "index.js"
+  "name": "productapi",
+  "version": "1.0.0",
+  "description": "REST API - Users",
+  "dependencies": {
+    "restify": "4.1.1",
+    "save": "2.3.0"
+  },
+  "author": "Dhrumil and Nithyanand",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhrumil1717/Node_Assignment1.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhrumil1717/Node_Assignment1/issues"
+  },
+  "homepage": "https://github.com/Dhrumil1717/Node_Assignment1#readme"
 }

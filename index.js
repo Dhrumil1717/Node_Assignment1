@@ -15,7 +15,6 @@ var restify = require('restify')
   server.listen(PORT, HOST, function () {
   console.log('Server %s listening at %s', server.name, server.url)
   console.log('Endpoints: %s/products method: GET, POST', server.url)
-  console.log(' /products')  
 })
 
 server
