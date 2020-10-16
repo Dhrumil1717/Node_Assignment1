@@ -14,7 +14,7 @@ var restify = require('restify')
 
   server.listen(PORT, HOST, function () {
   console.log('Server %s listening at %s', server.name, server.url)
-  console.log('Endpoints: %s/products method: GET, POST', server.url)
+  console.log('Endpoints: %s/products     Methods: GET, POST', server.url)
 })
 
 server
@@ -31,8 +31,8 @@ server.get('/products', function (req, res, next) {
     res.send(products)
     GET++
     console.log("---------->products GET: sending response<----------")
-    console.log("GET counter :"+GET)
-    console.log("POST counter :"+POST)
+    console.log("--->GET counter :"+GET)
+    console.log("--->POST counter :"+POST)
   })
 })
 
@@ -55,26 +55,30 @@ server.post('/products', function (req, res, next) {
 	}
 
   // Create the Product using the persistence engine
+  console.log("---------->products POST: creating entry in memory <----------")
   productsSave.create( newProduct, function (error, product) 
   {
+
     if (error) return next(new restify.InvalidArgumentError(JSON.stringify(error.errors)))
     res.send(201, product)
     
     POST++
-    console.log("---------->products POST: sending response<----------")
-    console.log("GET counter :"+GET)
-    console.log("POST counter :"+POST)
+    console.log("---------->products POST: entry created <----------")
+    console.log("--->GET counter :"+GET)
+    console.log("--->POST counter :"+POST)
   })
 })
 
-// Delete product with the given id
-server.del('/products/:id', function (req, res, next) {
-
+// Delete all products
+server.del('/products', function (req, res, next) {
+  
   // Delete the product with the persistence engine
-  productsSave.delete(req.params.id, function (error, product) 
+  console.log("---------->DELETING ALL ENTRIES<----------")
+  productsSave.delete({}, function (error, product) 
   {
+    //DELETING ALL ENTRIES
     if (error) return next(new restify.InvalidArgumentError(JSON.stringify(error.errors)))
     res.send()
-    console.log("---------->ENTRY DELETED<----------")
+    console.log("---------->ENTRIES DELETED<----------")
   })
 })
